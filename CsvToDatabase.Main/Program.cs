@@ -21,14 +21,16 @@ class Program
         var logger = new Logger([new FileLogger("..\\..\\..\\log.txt")]);
         var loggingProxy = LoggingProxy<IPersonRepository>.CreateInstance(repository, logger);
         
-        // var records = new List<Person>
-        // {
-        //     new Person(1, "James", "Bonk", 40),
-        //     new Person(2, "Jerald", "Ponk", 35),
-        // };
-        // using var writer = new StreamWriter("..//..//..//file.csv");
-        // using var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture);
-        // csvWriter.WriteRecords(records);
+        var records = new List<Person>
+        {
+            new Person(1, "James", "Bonk", 40),
+            new Person(2, "Jerald", "Ponk", 35),
+        };
+        using (var writer = new StreamWriter("..//..//..//file.csv"))
+        {
+            using var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture);
+            await csvWriter.WriteRecordsAsync(records);
+        }
         
         var csvEnumearble = new CsvEnumerable<Person>("..\\..\\..\\file.csv");
         foreach (var el in csvEnumearble)
