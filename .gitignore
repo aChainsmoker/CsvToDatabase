@@ -56,3 +56,6 @@ nunit-*.xml
 global.json
 .idea/
 *.DotSettings.user
+
+log.txt
+file.csv
