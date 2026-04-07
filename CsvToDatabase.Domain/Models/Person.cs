@@ -6,6 +6,7 @@ public class Person
     public string FirstName { get; init; } = null!;
     public string LastName { get; init; } = null!;
     public int Age { get; init; }
+    
     public Person(int id, string firstName, string lastName, int age)
     {
         Id = id;
@@ -13,6 +14,7 @@ public class Person
         LastName = lastName;
         Age = age;
     }
+
     public Person()
     {
         
